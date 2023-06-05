@@ -16,7 +16,7 @@ const bookInstanceSchema = new mongoose.Schema({
     enum: ['Available', 'Maintenance', 'Loaned', 'Reserved'],
     default: 'Maintenance',
   },
-  due_back: {
+  dueBack: {
     type: Date,
     default: Date.now,
   },

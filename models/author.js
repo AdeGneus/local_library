@@ -1,22 +1,22 @@
 const mongoose = require('mongoose');
 
 const authorSchema = new mongoose.Schema({
-  first_name: {
+  firstName: {
     type: String,
     required: [true, 'Please provide the first name'],
     maxLength: 100,
     trim: true,
   },
-  family_name: {
+  familyName: {
     type: String,
     required: [true, 'Please provide the last name'],
     maxLength: 100,
     trim: true,
   },
-  date_of_birth: {
+  dateOfBirth: {
     type: Date,
   },
-  date_of_death: {
+  dateOfDeath: {
     type: Date,
   },
 });
