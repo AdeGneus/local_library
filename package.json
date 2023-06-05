@@ -1,0 +1,32 @@
+{
+  "name": "local-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "prod": "NODE_ENV=production nodemon index.js"
+  },
+  "author": "Wasiu Bakare",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.2",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8"
+  }
+}
