@@ -7,6 +7,14 @@ const cookieParser = require('cookie-parser');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
+const viewRouter = require('./routes/viewsRoutes');
+const userRouter = require('./routes/userRoutes');
+const catalogRouter = require('./routes/catalogRoutes');
+const bookRouter = require('./routes/bookRoutes');
+const authorRouter = require('./routes/authorRoutes');
+const genreRouter = require('./routes/genreRoutes');
+const bookInstanceRouter = require('./routes/bookInstanceRoutes');
+
 const app = express();
 
 // Set view engine
@@ -27,9 +35,13 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 
 // Routes
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
+app.use('/', viewRouter);
+app.use('/catalog', catalogRouter);
+app.use('/api/v1/users', userRouter);
+app.use('/api/v1/catalog/books', bookRouter);
+app.use('/api/v1/catalog/authors', authorRouter);
+app.use('/api/v1/catalog/genres', genreRouter);
+app.use('/api/v1/catalog/bookInstances', bookInstanceRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
