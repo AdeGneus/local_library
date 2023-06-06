@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+	h1 Author: #{author.name}
+	- const dateOfBirth = author.dateOfBirth ? author.dateOfBirth.toLocaleString('en-us',{month: 'short', day: 'numeric',year: 'numeric'}) : ''
+	- const dateOfDeath = author.dateOfDeath ? author.dateOfDeath.toLocaleString('en-us',{month: 'short', day: 'numeric',year: 'numeric'}) : ''
+	p #{dateOfBirth} - #{dateOfDeath}
+
+	div(style='margin-left:20px;margin-top:20px')
+
+		h4 Books
+
+		dl
+			each book in authorBooks
+				dt
+					a(href=book.url) #{book.title}
+				dd #{book.summary}
+
+			else
+				p This author has no books.

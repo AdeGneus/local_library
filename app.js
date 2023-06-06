@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
-const viewRouter = require('./routes/viewsRoutes');
+const indexRouter = require('./routes/indexRoutes');
 const userRouter = require('./routes/userRoutes');
 const catalogRouter = require('./routes/catalogRoutes');
 const bookRouter = require('./routes/bookRoutes');
@@ -35,7 +35,7 @@ app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 
 // Routes
-app.use('/', viewRouter);
+app.use('/', indexRouter);
 app.use('/catalog', catalogRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/catalog/books', bookRouter);
