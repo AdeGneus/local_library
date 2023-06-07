@@ -36,12 +36,12 @@ app.use(cookieParser());
 
 // Routes
 app.use('/', indexRouter);
+app.use('/users', userRouter);
 app.use('/catalog', catalogRouter);
-app.use('/api/v1/users', userRouter);
-app.use('/api/v1/catalog/books', bookRouter);
-app.use('/api/v1/catalog/authors', authorRouter);
-app.use('/api/v1/catalog/genres', genreRouter);
-app.use('/api/v1/catalog/bookInstances', bookInstanceRouter);
+app.use('/catalog/books', bookRouter);
+app.use('/catalog/authors', authorRouter);
+app.use('/catalog/genres', genreRouter);
+app.use('/catalog/bookInstances', bookInstanceRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='first_name') First Name:
+      input#first_name.form-control(type='text' placeholder='First name' name='firstName' required='true' value=(undefined===author ? '' : author.firstName) )
+      label(for='family_name') Family Name:
+      input#family_name.form-control(type='text' placeholder='Family name' name='familyName' required='true' value=(undefined===author ? '' : author.familyName))
+    div.form-group
+      label(for='date_of_birth') Date of birth:
+      input#date_of_birth.form-control(type='date' name='dateOfBirth' value=(undefined===author ? '' : author.dateOfBirth) )
+    div.form-group
+      label(for='datOfBeath') Date of death:
+      input#date_of_death.form-control(type='date' name='dateOfDeath' value=(undefined===author ? '' : author.dateOfDeath) )
+    button.btn.btn-primary(type='submit') Submit
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
